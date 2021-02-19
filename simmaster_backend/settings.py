@@ -25,7 +25,7 @@ SECRET_KEY = '5my6^-buvsz3^tjn0*uh(ey^joj0%ciy@!dc$m&&i@o=nj$7iz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['api.yinzi.me']
+ALLOWED_HOSTS = ['api.yinzi.me', 'api.blog1.top']
 
 
 # Application definition

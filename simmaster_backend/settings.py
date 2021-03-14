@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'apps.simmaster',
+    'allauth.socialaccount',
     # 'apps.simmaster.apps.SimmasterConfig',
     'rest_framework',
     'rest_framework.authtoken',

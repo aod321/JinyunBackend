@@ -43,4 +43,4 @@ class SimViewSet(NewModelViewSet):
         user = self.request.user
         if user.is_superuser:
             return SimList.objects.all()
-        return SimList.objects.filter(id=user.id)
+        return SimList.objects.filter(user_id=user.id)

@@ -9,16 +9,19 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ['url', 'username', 'email', 'groups']
+        # fields = '__all__'
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
+        # fields = '__all__'
         fields = ['url', 'name']
 
 
 class SimListSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SimList
-        fields = ('user', 'phone_number', 'sim_number', 'carrier', 'location', 'current_balance',
+        # fields = '__all__'
+        fields = ('user', 'phone_number', 'carrier', 'location', 'current_balance',
                   'monthly_cost', 'comments')

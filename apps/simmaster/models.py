@@ -1,5 +1,7 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import AbstractUser
+
 
 CARRIER_LIST = [
     (0, "未设置"),
@@ -64,3 +66,6 @@ class SimList(models.Model):
     class Meta:
         verbose_name = "SIM卡信息"
         verbose_name_plural = verbose_name
+
+# class UserInfo(AbstractUser):
+    # sim_cards = models.ForeignKey(SimList, verbose_name='拥有 SIM 卡', related_name='user_sims', on_delete=models.CASCADE)

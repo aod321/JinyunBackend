@@ -25,8 +25,10 @@ SECRET_KEY = '5my6^-buvsz3^tjn0*uh(ey^joj0%ciy@!dc$m&&i@o=nj$7iz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['api.yinzi.me', 'api.blog1.top']
+ALLOWED_HOSTS = ['api.yinzi.me', 'api.blog1.top', '127.0.0.1', 'localhost']
 
+
+# AUTH_USER_MODEL = "simmaster.UserInfo"
 
 # Application definition
 
@@ -36,11 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
-    'apps.simmaster.apps.SimmasterConfig',
+    'apps.simmaster',
+    # 'apps.simmaster.apps.SimmasterConfig',
     'rest_framework',
-    'drf_yasg'
+    'rest_framework.authtoken',
+    'drf_yasg',
+    'rest_auth',
+    'rest_auth.registration',
+    'allauth',
+    'allauth.account',
 ]
+SITE_ID = 1
+
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -65,8 +76,7 @@ ROOT_URLCONF = 'simmaster_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,9 +129,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "zh-hans"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "Asia/Shanghai"
 
 USE_I18N = True
 

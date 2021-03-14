@@ -20,6 +20,7 @@ from rest_framework import routers
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from django.conf.urls import include, url
 
 
 schema_view = get_schema_view(
@@ -43,8 +44,10 @@ router.register(r'sims', views.SimViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api/v1/', include(router.urls)),
+    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api-auth/', include('rest_auth.urls')),
+    url(r'^api-auth/registration/', include('rest_auth.registration.urls')),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",
         schema_view.without_ui(cache_timeout=0),

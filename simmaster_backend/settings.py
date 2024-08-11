@@ -25,7 +25,7 @@ SECRET_KEY = '5my6^-buvsz3^tjn0*uh(ey^joj0%ciy@!dc$m&&i@o=nj$7iz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['api.yinzi.me', 'api.blog1.top', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['api.yinzi.me', 'api.blog1.top', '127.0.0.1', 'localhost', 'jy.tsinghuakidlab.com', 'game.tsinghuakidlab.com']
 
 
 # AUTH_USER_MODEL = "simmaster.UserInfo"
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'apps.simmaster',
-    'allauth.socialaccount',
+    # 'allauth.socialaccount',
     # 'apps.simmaster.apps.SimmasterConfig',
     'rest_framework',
     'rest_framework.authtoken',
@@ -99,9 +99,9 @@ WSGI_APPLICATION = 'simmaster_backend.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "sim_master",
-        "USER": "sim_master",
-        "PASSWORD": "nhHwbpctXz5nZxZS",
+        "NAME": "boxgame",
+        "USER": "boxgame",
+        "PASSWORD": "AkmGDxYfxYbXDSGw",
         "HOST": "localhost",
         "PORT": "3306",
     }
@@ -138,7 +138,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

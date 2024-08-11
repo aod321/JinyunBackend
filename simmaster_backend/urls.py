@@ -40,7 +40,8 @@ schema_view = get_schema_view(
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-router.register(r'sims', views.SimViewSet)
+router.register(r'myusers', views.MyUserViewSet)
+router.register(r'playinfos', views.PlayInfoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

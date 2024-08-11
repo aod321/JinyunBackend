@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions
-from apps.simmaster.models import SimList
-from apps.simmaster.serializers import UserSerializer, GroupSerializer, SimListSerializer
+from apps.simmaster.models import MyUser, PlayInfo
+from apps.simmaster.serializers import UserSerializer, GroupSerializer, MyUserSerializer, PlayInfoSerializer
 from apps.simmaster.custom_viewset import NewModelViewSet
 
 
@@ -16,8 +16,8 @@ class UserViewSet(NewModelViewSet):
     def get_queryset(self):
         user = self.request.user
         if user.is_superuser:
-            return SimList.objects.all()
-        return SimList.objects.filter(id=user.id)
+            return MyUser.objects.all()
+        return MyUser.objects.filter(id=user.id)
 
 
 class GroupViewSet(NewModelViewSet):
@@ -30,17 +30,34 @@ class GroupViewSet(NewModelViewSet):
 
 
 
-class SimViewSet(NewModelViewSet):
+class MyUserViewSet(NewModelViewSet):
     """
-    SIM卡管理
+    用户管理
     """
-    queryset = SimList.objects.all()
-    serializer_class = SimListSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    queryset = MyUser.objects.all()
+    serializer_class = MyUserSerializer
+    permission_classes = [permissions.AllowAny]
     # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     
-    def get_queryset(self):
-        user = self.request.user
-        if user.is_superuser:
-            return SimList.objects.all()
-        return SimList.objects.filter(user_id=user.id)
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     if user.is_superuser:
+    #         return MyUser.objects.all()
+    #     return MyUser.objects.filter(user_id=user.id)
+
+class PlayInfoViewSet(NewModelViewSet):
+    """
+    实验记录管理
+    """
+    queryset = PlayInfo.objects.all()
+    serializer_class = PlayInfoSerializer
+    permission_classes = [permissions.AllowAny]
+    # permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     if user.is_superuser:
+    #         return PlayInfoViewSet.objects.all()
+    #     return PlayInfoViewSet.objects.filter(user_id=user.id)
+    
